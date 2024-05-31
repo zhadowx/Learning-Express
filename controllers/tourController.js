@@ -132,6 +132,10 @@ exports.getTourStats = async (req, res) => {
     ]);
     res.status(200).json({
       status: 'success',
+      tours: stats.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.numTours,
+        0,
+      ),
       data: {
         stats,
       },
